@@ -1,0 +1,612 @@
+@import "variables"
+@import "mixins"
+@import "fonts"
+
+body
+        color: $mainColor
+        font-size: $mainFont-size
+        font-weight: $mainFont-weight
+        line-height: $mainLine-height
+        font-family: $mainFont-family
+        overflow-x: hidden
+
+*, *:before, *:after
+        box-sizing: border-box
+        margin: 0
+        padding: 0
+
+ul 
+        padding: 0
+        margin: 0
+        list-style: none
+
+img 
+        display: block
+
+* 
+        cursor: none
+
+.block
+        display: block !important
+
+.container
+        max-width: 1200px
+        margin: 0 auto
+        padding: 0 15px
+
+.header
+
+.header_active
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 50
+        background-color: #999
+        transition: .5s
+
+
+.header_active .header__wrapper
+        padding: 10px 0
+
+.header
+	&__wrapper
+        position: relative
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: 40px 0   
+	&__left
+	&__link
+        text-decoration: none
+	&__logo
+        color: #000
+        font-size: 28px
+        line-height: 38px
+	&__right
+        display: flex
+        align-items: center
+        justify-content: space-between
+        width: 970px
+	&__shopping-cart
+        position: relative
+        display: block
+        width: 34px
+        height: 32px
+
+.header__background
+        width: 20px
+        height: 20px
+        position: absolute
+        top: 0
+        right: 0
+        z-index: 3
+        border-radius: 50%
+        background-color: #F72464
+        font-size: 12px
+        line-height: 16px
+        font-weight: 700
+        color: #FFFFFF
+
+.header__number
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate3d(-50%,-50%,0)
+        font-size: 12px
+        line-height: 16px
+
+.header__photo
+        position: absolute
+        left: 0
+        bottom: 0
+
+.nav
+	&__list
+        display: flex
+        font-family: 'Playfair Display', serif
+	&__item
+        margin-right: 20px
+        &:last-child
+                margin-right: 0
+	&__link
+        font-size: 18px
+        line-height: 25px
+        color: #000
+        transition: opacity .4s
+        text-decoration: none
+        &:hover
+                opacity: .5
+
+.burger
+        width: 30px
+        height: 30px
+        cursor: pointer
+        position: relative
+
+.burger
+	&__item
+        position: absolute
+        display: block
+        width: 30px
+        height: 2px
+        background-color: #000
+        &:nth-child(1)
+                top: 0
+                transition: .5s
+        &:nth-child(2)
+                top: 14px
+                opacity: 1
+                transition: .5s
+        &:nth-child(3)
+                top: 28px
+                transition: .5s
+
+.menu-active
+        display: block !important
+        position: absolute
+        padding: 20px 10px
+        top: 100%
+        left: 0
+        z-index: 100
+        width: 100%
+        background-color: #fff
+        border-top: 2px solid #000
+
+.menu-active .nav__list
+        flex-direction: column
+
+.menu-active .nav__item
+        margin-right: 0
+        margin-bottom: 15px
+
+.menu-active .nav__link
+        display: block
+        width: 100%
+
+.burger-active .burger__item:nth-child(1)
+        transform: rotate(45deg)
+        top: 13px
+        transition: .5s
+
+.burger-active .burger__item:nth-child(2)
+        opacity: 0
+        transition: .5s
+
+.burger-active .burger__item:nth-child(3)
+        transform: rotate(-45deg)
+        top: 13px
+        transition: .5s
+
+
+.intro
+	&__wrapper
+                background-image: url(../images/dest/intro-bg.jpg)
+                background-repeat: no-repeat
+                background-position: top right
+                background-size: 670px 737px                
+                min-height: 737px
+	&__content
+                height: 100%
+                padding: 174px 0
+	&__title
+                font-family: 'Playfair Display', serif
+                font-size: 72px
+                line-height: 96px
+                margin-bottom: 20px
+                max-width: 670px
+	&__subtitle
+                max-width: 589px
+                font-size: 22px
+                line-height: 150%
+                margin-bottom: 60px
+	&__btn
+                +pink-link
+
+.product 
+        padding: 70px 0
+        &__wrapper
+                text-align: center
+.product
+	&__info
+        margin-bottom: 40px
+	&__title
+        font-family: 'Playfair Display', serif
+        font-size: 42px
+        line-height: 56px
+        margin-bottom: 10px
+	&__subtitle
+        font-size: 14px
+        line-height: 19px
+        text-transform: uppercase
+        color: #999999
+	&__cards
+        margin-bottom: 40px
+        display: flex
+        flex-direction: column
+        row-gap: 40px
+	&__card
+	&__button
+        display: inline-block
+        text-decoration: none
+        border: 1px solid #F72464
+        background-color: #fff
+        border-radius: 4px
+        padding: 10px 40px
+        font-family: 'Playfair Display', serif
+        font-size: 16px
+        line-height: 21px
+        text-transform: uppercase
+        color: #777777
+        transition: border, background-color, color .5s
+        &:hover
+                background-color: #000
+                color: #fff
+                border: 1px solid #000
+
+
+.cards__row
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+.card__price
+        font-size: 0
+.card
+	&__img
+        width: 100%
+        height: 100%
+        object-fit: cover
+	&__info
+        padding-top: 12px
+	&__name
+        font-family: 'Playfair Display', serif
+        font-size: 20px
+        line-height: 27px
+        font-weight: 500
+        margin-bottom: 12px
+	&__price-old
+        color: #999999
+        font-size: 14px
+        margin-right: 10px
+	&__price-new
+        font-size: 14px
+        color: #F72464
+        font-weight: 700
+.card__link-img
+        display: block
+        width: 270px
+        height: 350px
+.card__info .card__link
+        color: #000
+        text-decoration: none
+
+.info
+        background-image: url(../images/dest/info-bg.jpg)
+        background-repeat: no-repeat
+        background-size: cover
+        background-position: center center
+        position: relative
+        &__wrapper
+                display: flex
+                justify-content: space-between
+                align-items: center
+                min-height: 188px
+.info
+	&__title
+                font-family: 'Playfair Display', serif
+                font-size: 52px
+                line-height: 100%
+                color: #FFFFFF
+	&__button
+                +pink-link
+
+.info1
+        background-image: url(../images/dest/info1-bg.jpg)
+.info1
+	&__wrapper
+	&__title
+	&__button
+                +pink-link
+
+.blog
+        padding: 70px 0  
+.blog 
+	&__wrapper
+                text-align: inherit
+	&__info
+                text-align: center
+                margin-bottom: 40px
+	&__title
+                font-family: 'Playfair Display', serif
+                font-size: 42px
+                line-height: 56px
+                margin-bottom: 10px
+	&__subtitle
+                font-size: 14px
+                line-height: 19px
+                text-transform: uppercase
+                color: #999999
+	&__items
+                display: flex
+                flex-direction: column
+                row-gap: 40px
+	&__row
+                display: flex
+	&__item
+                display: flex
+                max-width: 570px
+.blog
+        &__button
+                text-align: center
+                margin-top: 76px
+
+.item
+        &__left-inner
+                width: 170px
+                height: 170px
+        &__photo
+                width: 100%
+                height: 100%
+                object-fit: cover
+.item
+	&__left
+	&__right
+                padding: 18px 30px
+	&__title
+                font-family: 'Playfair Display', serif
+                font-size: 20px
+                line-height: 27px
+                margin-bottom: 10px
+	&__text
+                font-size: 14px
+                line-height: 130%
+                color: #777777
+                margin-bottom: 10px
+	&__link
+                display: inline-block
+                position: relative                        
+                width: 104px
+                height: 24px
+                font-family: 'Playfair Display', serif
+                font-size: 16px
+                line-height: 21px
+                color: #000000
+                text-decoration: none
+                transition: .4s
+                &::before     
+                        content: ""
+                        position: absolute
+                        top: 50%
+                        transform: translateY(-50%)
+                        right: 7px
+                        top: 8px
+                        width: 12px
+                        height: 2px
+                        background-color: #F72464
+                        transform: rotate(45deg)
+                &::after   
+                        content: ""
+                        position: absolute
+                        top: 50%
+                        transform: translateY(-50%)
+                        right: 7px
+                        top: 15px
+                        width: 12px
+                        height: 2px
+                        background-color: #F72464
+                        transform: rotate(135deg)
+                &:hover
+                        opacity: .7
+                        transform: translateX(10px)
+
+.feedback
+        padding: 20px 0 100px
+
+.feedback
+        &__wrapper
+                text-align: center
+.feedback
+	&__title
+                font-family: 'Playfair Display', serif
+                font-size: 42px
+                line-height: 56px
+                margin-bottom: 20px
+	&__subtitle
+                max-width: 630px
+                margin: 0 auto
+                font-size: 16px
+                line-height: 22px
+                color: #999999
+                margin-bottom: 30px
+	&__form
+                        display: flex
+                        justify-content: center
+.form
+	&__input
+                border: 1px solid #F72464
+                border-radius: 4px
+                font-size: 16px
+                line-height: 22px
+                color: #999999
+                padding: 9px 74px 9px 11px
+                outline: none
+                margin-right: 10px
+	&__button
+                +pink-link
+                border: 0 
+                min-width: 134px
+                font-size: 16px
+                line-height: 22px
+                padding: 10px 30px
+                font-family: 'Noto Sans', sans-serif
+                cursor: pointer
+                outline: none
+.footer
+        background: #000000
+.footer
+        &__wrapper
+                text-align: center
+                padding: 30px 0
+.footer
+	&__menu
+                margin-bottom: 25px
+	&__social
+                display: flex
+                justify-content: center
+                align-items: center
+	&__copyright
+                font-size: 14px
+                line-height: 19px
+                color: #999999
+                margin-top: 25px
+
+
+.menu
+	&__list
+                display: flex
+                justify-content: center
+	&__item
+                margin-right: 20px
+                &:last-child
+                        margin-right: 0
+	&__link
+                text-decoration: none
+                font-size: 14px
+                line-height: 19px
+                text-transform: uppercase
+                color: #fff
+                transition: .5s
+                &:hover
+                        opacity: .5
+
+.social
+	&__facebook
+                margin-right: 31px
+	&__twitter
+                margin-right: 31px
+	&__pinterest
+	&__instagram
+                margin-right: 31px
+
+.social__item a 
+        display: block
+
+.social__item svg
+        display: block
+        transition: .5s
+        &:hover
+                fill: #f72464
+                fill-opacity: .5
+
+.cursor
+        width: 10px
+        height: 10px
+        background-color: #747474
+        border-radius: 50%
+        position: fixed
+        top: 0
+        left: 0
+        z-index: 1700
+        user-select: none
+        pointer-events: none
+        &.hidden
+                transform: scale(0.001) !important
+        &.active
+                opacity: 0
+                transform: scale(0) !important
+
+.follower
+        width: 40px
+        height: 40px
+        background-color: rgba(0, 0, 0, .1)
+        border: 1px solid #999
+        border-radius: 50%
+        position: fixed
+        top: -5px
+        left: -5px
+        z-index: 1700
+        user-select: none
+        pointer-events: none
+        &.hidden
+                transform: scale(0.001) !important
+        &.active
+                background-color: rgba(128,128,128, 0.6)
+                
+
+.loader
+        position: fixed;
+        left: 0
+        top: 0
+        z-index: 1000
+        height: 100%
+        width: 100%
+        background-color: #fff
+        &__wrapper
+                width: 100%
+                height: 0
+                background: #000
+        &__title
+                position: absolute
+                top: 50%
+                left: 50%
+                color: transparentize(#fff, 1)
+                transform: translate3d(-50%, -50%, 0)
+                color: #fff
+
+
+.scroll-progressbar
+        position: fixed
+        left: 0
+        top: 0
+        background-color: #a1a1a1
+        width: 0%
+        height: 5px
+        &__indicator
+                height: 100%
+                width: 0
+                background: linear-gradient(270deg, #F70000 0%, #992B94 20%, #003BD1 40%, #00F7BB 60%, #0FF50B 80%, #EAED58 100%), #C4C4C4
+
+.fullscreen-menu
+        position: fixed
+        top: 0
+        left: 0
+        z-index: 100
+        width: 0
+        height: 100vh
+        opacity: 0
+        background-color: #000
+        display: none
+        overflow-y: auto
+        &__close
+                position: absolute
+                right: 20px
+                top: 12px
+                border: 0
+                outline: none
+                background-color: transparentize(#fff, 1)
+                font-size: 30px
+                font-weight: 500
+                color: #fff
+        &__nav
+                justify-content: center
+                align-items: center
+                margin: 60px 0 20px;
+                text-align: center;
+        &__list
+        &__item
+                margin-bottom: 15px
+                &:last-child
+                        margin-bottom: 0
+        &__link
+                text-decoration: none
+                color: #fff
+                font-size: 20px
+                font-weight: 700
+                line-height: 1.2
+                transition: color .4s linear, opacity .4s linear
+                &:hover
+                        color: #fff
+                        opacity: .7
+
+
+
+@import "media"
